@@ -1,0 +1,27 @@
+
+
+{% extends 'adminheader.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<div class="selectroom_top" style="width: 70rem; padding-left: 3rem; padding-right: 3rem; margin-left: 15rem; margin-top:5rem; align-items: center;">
+		<h2>Add Hotels</h2>
+		<hr>
+		<div class="form-group">
+			<form method="POST" action="{% url 'adminhotel' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+	{{form.as_p}}<br>
+	<center>
+	<input type="submit" name="submit"></center>
+</form>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

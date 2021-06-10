@@ -1,0 +1,177 @@
+
+{% extends 'header.html' %}
+{% load static %}
+
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href="{% static 'css/all.min.css' %}" rel="stylesheet"  type='text/css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+        <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+		<link href="{% static 'css/stylee1.css' %}" rel='stylesheet' type='text/css' />
+        <link href="{% static 'css/font-awesome.css' %}" rel='stylesheet' />
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,600" rel='stylesheet' type='text/css'>
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel='stylesheet' type='text/css'>
+        <link href="//fonts.googleapis.com/css?family=Oswald" rel='stylesheet' type='text/css'>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+        <!-- Custom Theme files -->
+        <script src="{% static 'js/all.min.js' %}"></script>
+        <script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!--animate-->
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+            <script>
+                 new WOW().init();
+            </script>
+        <!--//end-animate-->
+        </head>
+<body>
+    {% block content %}
+<!-- top-header -->
+<div class="banner-4">
+	<div class="container">
+		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> BMH - Vehicle Details</h1>
+	</div>
+</div>
+<!--- /banner ---->
+<!--- selectroom ---->
+<div class="selectroom">
+	<div class="container">	
+<form name="book" method="post">
+		
+<div class="selectroom_top">
+			<h2>Vehical Selection</h2>
+	
+			<div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
+				<ul>
+			
+<!--- routes ---->
+<div class="routes">
+	<div class="container">
+		<div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
+			<div class="rou-left" data-toggle="collapse" data-target="#car">
+				<i class="fas fa-car-side fa-4x" ></i>
+			</div>
+			<div class="rou-rgt wow fadeInDown animated" data-wow-delay=".5s">
+				<h3>Car</h3>
+				<p>5 Seats</p>
+			</div>
+				<div class="clearfix"></div>
+		</div>
+	
+		<div class="col-md-4 routes-left wow fadeInLeft animated" data-wow-delay=".5s">
+			<div class="rou-left" data-toggle="collapse" data-target="#bus">
+				<i class="fas fa-bus fa-4x"></i>
+
+			</div>
+			<div class="rou-rgt">
+				<h3>Bus</h3>
+				<p>12 seats</p>
+			</div>
+				<div class="clearfix"></div>
+		</div>
+
+	
+	</div>
+</div>
+
+<div class="clearfix"></div>
+		</ul>
+		</div>	
+		</div>
+		<div class="collapse" id="car">
+			<div class="selectroom_top">
+				<h2>Car Booking</h2>
+				<br><br>
+				<div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
+					
+
+					{% for car in cars %}
+			
+			<div class="rom-btm">
+				<div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+					<img src="{{ car.vimg.url }}" class="img-responsive" alt="">
+				</div>
+				<div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
+					<h4>Car Name :{{car.name}}</h4><br>
+					<p><b>Car Type :</b>{{car.vtype}}</p><br>
+					<p><b> Seats Available:</b>{{car.seats}} </p><br>
+				</div>
+				<div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
+					<h5>Rs. {{car.vprice}}</h5>
+					<a href="{% url 'hotles' mybooking car.id %}" class="view">Select</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+{% endfor %}
+
+
+				</div>
+				
+			</div>
+		
+		</div>
+		<div class="collapse" id="bus">
+			<div class="selectroom_top">
+				<h2>Bus Booking</h2>
+				<br><br>
+				<div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
+			
+					{% for bus in buss %}
+
+			<div class="rom-btm">
+				<div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+					<img src="{{ bus.vimg.url }}" class="img-responsive" alt="">
+				</div>
+				<div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
+					<h4>Travelers :{{bus.name}}</h4><br>
+					<p><b>Bus Type :</b>{{bus.vtype}}</p><br>
+					<p><b> Seats Available:</b>{{bus.seats}} </p><br>
+				</div>
+				<div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
+					<h5>Rs. {{bus.vprice}}</h5>
+					<a href="{% url 'hotles' mybooking bus.id %}" class="view">Select</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+{% endfor %}
+
+
+				</div>
+				
+			</div>
+		
+		</div>
+		</form>
+
+
+
+	</div>
+</div>
+
+<br>
+<br><br><br><br>
+<div class="copy-right">
+	<div class="container">
+		<div class="footer-social-icons wow fadeInDown animated animated text-center" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+			<ul>
+				<li><a class="facebook" href="#"><span>Facebook</span></a></li>
+				<li><a class="twitter" href="#"><span>Twitter</span></a></li>
+				<li><a class="flickr" href="#"><span>Flickr</span></a></li>
+				<li><a class="googleplus" href="#"><span>Google+</span></a></li>
+				<li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+			</ul>
+		</div>
+		<p class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">© 2017 TMS . All Rights Reserved </p>
+	</div>
+</div>
+{% endblock %}
+</body>
+</html>

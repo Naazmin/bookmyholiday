@@ -1,0 +1,79 @@
+
+{% load static %}
+<head>
+
+    <title>TMS | Tourism Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.3-web/css/all.min.css' %}">
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'css/custom.css' %}" rel='stylesheet' type='text/css' />
+
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static '//fonts.googleapis.com/css?family=Open+Sans:400,700,600' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static '//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static '//fonts.googleapis.com/css?family=Oswald' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- Custom Theme files -->
+    <script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!--animate-->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+    <script src="{% static 'js/wow.min.js' %}"></script>
+        <script>
+             new WOW().init();
+        </script>
+    <!--//end-animate-->
+    </head>
+    <body>
+<div class="header">
+    <div class="container">
+        <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
+            <a href="index.php">Book <span>My Holidays</span></a>	
+        </div>
+    
+        <div class="lock fadeInDown animated" data-wow-delay=".5s"> 
+            <li><i class="fa fa-lock"></i></li>
+            <li><div class="securetxt">SAFE &amp; SECURE </div></li>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- /.navbar-collapse -->
+<div class="footer-btm wow fadeInLeft animated" data-wow-delay=".5s">
+    <div class="container">
+    <div class="navigation">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+              
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                    <nav class="cl-effect-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="page.php?type=aboutus">About</a></li>
+                                <li><a href="package-list.php">Tour Packages</a></li>
+                                <li><a href="page.php?type=privacy">Privacy Policy</a></li>
+                                <li><a href="page.php?type=terms">Terms of Use</a></li>
+                                <li><a href="page.php?type=contact">Contact Us</a></li> 
+                                <li><a href="enquiry.php"> Enquiry </a>  </li>
+                                
+                                <div class="clearfix"></div>
+
+                        </ul>
+                        {% if user.is_authenticated %}
+                                <button class="btn btn-denger"><a href="enquiry.php"> Logout </a></button> 
+                                {% endif %}
+                    </nav>
+                </div><!-- /.navbar-collapse -->	
+            </nav>
+        </div>
+        
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% block content %}
+{% endblock %}
+</body>

@@ -1,0 +1,81 @@
+{% extends 'adminheader.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	
+      
+	<h4>
+        <div class="row" style="padding-top: 3rem;">
+            {% for i in myenq %}
+        
+            {% if i.status == False %}
+              <div class="col-sm-4 py-2" style="padding-left: 4rem; padding-right: 3rem;">
+                <div class="card border-denger mb-3" style="width: 27rem; height: 15rem;">
+                  <div class="card-header bg-primary border-denger text-success text-center" style="height: 20px;"><h4>Enquery:&nbsp;</h4></div>
+            
+            <div class="card-body text-primary bg-white">
+                <h5 class="card-title"><p>User: {{i.user}} </p></h5>
+                <hr>
+            <h5 class="card-title"><p>Query: {{i.enquerys}} </p></h5>
+            <hr>
+                <h5 class="card-title"><p>Issue Date: {{i.startdate}}
+                </p></h5>
+                <hr>
+
+                </div>
+             
+            
+                <div class="card-footer bg-transparent border-success " style="align-items: right;">
+                <button class="btn btn-success" data-toggle="modal" data-target="#adminenquiry">Reply</button>
+             
+            </div>
+            </div>
+            </div>
+            <div class="modal fade" id="adminenquiry" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <b><h3 class="modal-title text-success" id="exampleModalLabel" >Enquiry Reply {{i.id}}</h3></b>
+            <hr>
+                    </div>
+                    
+                    <form name="book1" method="post" action="{% url 'replyquery' i.id %}">
+                        {% csrf_token %}
+                    <div class="modal-body">
+                        <h4 class="card-title"><p>Query: {{i.enquerys}} </p></h4><br>
+                        <label class="inputLabel">Reply: </label>
+                        <input class="textarea" id="dn" type="text" placeholder="Add Your Query" name="reply1" required="" style="width: 30rem;" cols="50"><br>
+                        
+                        <br>
+                    </div>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                  </div>
+                </div>
+              </div>
+            
+            {% endif %}
+            {% endfor %}
+                  
+           
+    
+        </h4>
+
+      
+
+</body>
+</html>
+{% endblock %}

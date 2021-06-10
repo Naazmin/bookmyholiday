@@ -1,0 +1,183 @@
+{% extends 'header.html' %}
+{% load static %}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>TMS | Tourism Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'css/all.min.css' %}" rel="stylesheet"  type='text/css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/font-awesome.css' %}" rel='stylesheet' />
+
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,600" rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=Oswald" rel='stylesheet' type='text/css'>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+<!-- Custom Theme files -->
+<script src="{% static 'js/all.min.js' %}"></script>
+<script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!--animate-->
+<link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+</head>
+<body>
+    {% block content %}
+	
+<div class="banner-2">
+	<div class="container">
+		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> Tour Packages</h1>
+	</div>
+</div>
+
+
+
+
+
+<!---holiday---->
+<div class="container">
+	<div class="holiday">
+
+	<h3>Package List</h3>
+{% for packages in packages %}
+
+			<div class="rom-btm">
+				<div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+					<img src="{{ packages.pimg.url }}" class="img-responsive" >
+				</div>
+				<div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
+					<h4>Package Name: {{packages.pname}}</h4>
+					<p><b>Package Location :</b>{{packages.pdestination}}</p>
+					<p><b>Features:</b>{{packages.paccomudation}} </p>
+					<p><b>Ratings :</b> </p>
+
+
+					{% if packages.ratings == 1 %}
+					<fieldset class="rating">
+						<input type="radio"  /><label for="star5" title="Rocks!">5 stars</label>
+						<input type="radio"  /><label for="star4" title="Pretty good">4 stars</label>
+						<input type="radio"  /><label for="star3" title="Meh">3 stars</label>
+						<input type="radio"  /><label for="star2" title="Kinda bad">2 stars</label>
+						<input type="radio"  checked="checked" /><label for="star1" title="Sucks big time">1 star</label>
+					</fieldset>
+					 {% endif %}
+					{% if packages.ratings == 2 %}
+					<fieldset class="rating">
+						<input type="radio" /><label for="star5" title="Rocks!">5 stars</label>
+						<input type="radio" /><label for="star4" title="Pretty good">4 stars</label>
+						<input type="radio"  /><label for="star3" title="Meh">3 stars</label>
+						<input type="radio"  checked="checked"  /><label for="star2" title="Kinda bad">2 stars</label>
+						<input type="radio"   /><label for="star1" title="Sucks big time">1 star</label>
+					</fieldset>
+					{% endif %}
+					{% if packages.ratings == 3 %}
+					<fieldset class="rating">
+						<input type="radio"  /><label for="star5" title="Rocks!">5 stars</label>
+						<input type="radio"  /><label for="star4" title="Pretty good">4 stars</label>
+						<input type="radio" checked="checked" /><label for="star3" title="Meh">3 stars</label>
+						<input type="radio" /><label for="star2" title="Kinda bad">2 stars</label>
+						<input type="radio"  /><label for="star1" title="Sucks big time">1 star</label>
+					</fieldset>
+					   {% endif %}
+					{% if packages.ratings == 4 %}
+					<fieldset class="rating">
+						<input type="radio"    /><label for="star5" title="Rocks!">5 stars</label>
+						<input type="radio"    checked="checked"  /><label for="star4" title="Pretty good">4 stars</label>
+						<input type="radio" /><label for="star3" title="Meh">3 stars</label>
+						<input type="radio" /><label for="star2" title="Kinda bad">2 stars</label>
+						<input type="radio"  /><label for="star1" title="Sucks big time">1 star</label>
+					</fieldset>
+					{% endif %}
+					{% if packages.ratings == 5 %}
+					<fieldset class="rating">
+						<input type="radio"  checked="checked"/><label for="star5" title="Rocks!">5 stars</label>
+						<input type="radio"  /><label for="star4" title="Pretty good">4 stars</label>
+						<input type="radio"  /><label for="star3" title="Meh">3 stars</label>
+						<input type="radio"  /><label for="star2" title="Kinda bad">2 stars</label>
+						<input type="radio"   /><label for="star1" title="Sucks big time">1 star</label>
+					</fieldset>
+				
+					{% endif %}
+				</div>
+				<div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
+					<h5>Rs. {{packages.price}}</h5>
+					<a href="/packagedetails/{{packages.id}}/" class="view">Details</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+{% endfor %}	
+</div>
+<div class="clearfix"></div>
+	</div>
+
+
+
+<!--- routes ---->
+
+<br>
+<br><br><br><br>
+<div class="copy-right">
+	<div class="container">
+	
+		<div class="footer-social-icons wow fadeInDown animated animated text-center" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+			<ul>
+				<li><a class="facebook" href="#"><span>Facebook</span></a></li>
+				<li><a class="twitter" href="#"><span>Twitter</span></a></li>
+				<li><a class="flickr" href="#"><span>Flickr</span></a></li>
+				<li><a class="googleplus" href="#"><span>Google+</span></a></li>
+				<li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+			</ul>
+		</div>
+		<p class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">© 2017 TMS . All Rights Reserved </p>
+	</div>
+</div>
+
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal-info">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>						
+			</div>
+			<div class="modal-body modal-spa">
+				<div class="login-grids">
+					<div class="login">
+							<div class="login-left">
+									<ul>
+										<li><a class="fb" href="#"><i></i>Facebook</a></li>
+										<li><a class="goog" href="#"><i></i>Google</a></li>
+										
+									</ul>
+								</div>
+						<div class="login-right">
+							<form method="post">
+								<h3>Signin with your account </h3>
+<input type="text" name="email" id="email" placeholder="Enter your Email"  required="">	
+<input type="password" name="password" id="password" placeholder="Password" value="" required="">	
+								<h4><a href="forgot-password.php">Forgot password</a></h4>
+								
+								<input type="submit" name="signin" value="SIGNIN">
+							</form>
+						</div>
+						<div class="clearfix"></div>								
+					</div>
+					<p>By logging in you agree to our <a href="page.php?type=terms">Terms and Conditions</a> and <a href="page.php?type=privacy">Privacy Policy</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,130 @@
+
+{% load static %}
+<head>
+
+    <title>BMH | Book My Holidays</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.3-web/css/all.min.css' %}">
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'css/custom.css' %}" rel='stylesheet' type='text/css' />
+
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'css/stylee1.css' %}" rel='stylesheet' type='text/css' />
+
+    <link href="{% static '//fonts.googleapis.com/css?family=Open+Sans:400,700,600' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static '//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static '//fonts.googleapis.com/css?family=Oswald' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- Custom Theme files -->
+    <script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!--animate-->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" media="all">
+    <script src="{% static 'js/wow.min.js' %}"></script>
+        <script>
+             new WOW().init();
+        </script>
+    <!--//end-animate-->
+    </head>
+    <body>
+<div class="header">
+    <div class="container">
+        <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
+            <a href="index.php">Book <span>My Holidays</span></a>	
+        </div>
+    
+        <div class="lock fadeInDown animated" data-wow-delay=".5s"> 
+            <li><i class="fa fa-lock"></i></li>
+            <li><div class="securetxt">SAFE &amp; SECURE </div></li>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- /.navbar-collapse -->
+<div class="footer-btm wow fadeInLeft animated" data-wow-delay=".5s">
+    <div class="container">
+    <div class="navigation">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                    <nav class="cl-effect-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{% url 'homepage' %}">Home</a></li>
+                            <li><a href="{% url 'bookings' %}">View Bookings</a></li>
+                                <li><a href="{% url 'adminpackage' %}">Add packages</a></li>
+                                <li><a href="{% url 'adminvehicle' %}">Add Vehicles</a></li>
+                                <li><a href="{% url 'adminhotel' %}">Add Hotelss</a></li>
+                                <li data-toggle="modal" data-target="#adddest"><a>Add Destination</a></li>
+                                
+                                <li><a href="{% url 'adminenquiry' %}">Enquires</a></li>
+
+
+
+                
+                               
+                                {% if not user.is_authenticated %}
+                                <li><a href="{% url 'userloginpage' %}"> Signin </a> </li>
+                                {% endif %}
+
+                                <div class="clearfix"></div>
+
+                        </ul>
+                        {% if user.is_authenticated %}
+                                <button class="btn btn-denger"><a href="{% url 'logout' %}"> Logout </a></button> 
+                                                                {% endif %}
+                             {% if not user.is_authenticated %}
+                            <button class="btn btn-denger"><a href="{% url 'userloginpage' %}"> Admin Login </a></button> 
+                             {% endif %}
+                    </nav>
+                </div><!-- /.navbar-collapse -->	
+            </nav>
+        </div>
+        
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="adddest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		  <b><h3 class="modal-title text-success" id="exampleModalLabel" >Add Destination</h3></b>
+<hr>
+		</div>
+        
+		<form name="book1" method="post" action="{% url 'adddest' %}">
+			{% csrf_token %}
+		<div class="modal-body">
+			<label class="inputLabel">Destination Name: </label>
+			<input class="textarea" id="dn" type="text" placeholder="Add Destination" name="dname1" required="" style="width: 30rem;" cols="50"><br>
+			
+			<br>
+		</div>
+	
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</form>
+	  </div>
+	</div>
+  </div>
+
+{% block content %}
+{% endblock %}
+</body>

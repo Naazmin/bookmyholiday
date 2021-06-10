@@ -1,0 +1,62 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+    <head>
+    </head>
+    <body>
+       <form action='' > 
+        <br>
+        <div class="row">
+            <div class= "col-md">
+                <div class=" card card-body">
+                    <center>
+                    <h3>Bookings</h3>
+                    <hr>
+                </center>
+                </div>
+                <div class=" card card-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>User</th>
+                            <th>Package</th>
+                            <th>Vehicle</th>
+                            <th>Hotel</th>
+                            <th>Members</th>
+                            <th>Source</th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                        </tr>
+                    
+                    {% for i in mybook1 %}
+                    
+                    
+                        <tr>   
+                            
+                        <td>{{i.user}}</td>
+						<td>{{i.pakage.pname}}</td>
+						<td>{{i.mvehicle}}</td>
+						<td>{{i.mhotle}}</td>
+						<td>{{i.members}}</td>
+						<td>{{i.source}}</td>
+						<td>{{i.fromdate}}</td>
+						<td>{{i.todate}}</td>
+
+                        
+                            
+                            
+                           
+                            
+                        </tr>
+                    
+                    {% endfor  %}
+                </table>
+                </div>
+            </div>
+        </div>
+      </form>
+    </head>
+</html>
+
+{% endblock %}
